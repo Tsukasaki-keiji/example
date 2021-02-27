@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/home/about', to: 'homes#about'
 
   resources :blogs
-  resources :videos, only: [:new, :create, :show]
+  resources :videos, only: [:new, :create, :show, :index]
 
 end
