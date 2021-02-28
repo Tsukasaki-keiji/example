@@ -11,12 +11,21 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    @blog.save
-    redirect_to blogs_path
+    @blog.user_id = current_user.id
+    if @blog.save
+      redirect_to @blog, notice: "You have created book successfully."
+    else
+      flash[:danger] = @blog.errors.full_messages
+      @blogs = Blog.all
+      render 'index'
+    end
   end
 
   def edit
     @blog = Blog.find(params[:id])
+    if current_user.id != @blog.user_id
+      redirect_to blogs_path
+    end
   end
 
   def show
