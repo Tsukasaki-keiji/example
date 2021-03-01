@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/home/about', to: 'homes#about'
 
-  resources :blogs
+  resources :blogs do
+    resources :post_comments, only: [:create, :destroy]
+  end
   resources :videos, only: [:new, :create, :show, :index]
 
 end
