@@ -18,3 +18,14 @@
    </table>
  </div>
 </div>
+
+<%= form_with(model:[@blog, @post_comment], method: :post) do |f| %>
+ <%= f.text_field :comment %>
+ <%= f.hidden_field :blog_id, value: @blog.id %>
+ <%= f.submit 'コメントする' %>
+<% end %>
+
+= form_with(model:[@blog, @comment], method: :post) do |f|
+   = f.text_area :comment_content
+   = f.hidden_field :blog_id, value: @blog.id
+   = f.submit 'コメントする'
