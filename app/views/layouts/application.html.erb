@@ -16,7 +16,7 @@
           <div class="collapse.navbar-collapse">
             <ul class="navbar-nav.mr-auto">
             <% if user_signed_in? %>
-              <th><%= link_to 'Home', users_index_path(current_user), class: 'glyphicon glyphicon-home home' %></th>
+              <th><%= link_to 'Home', root_path(current_user), class: 'glyphicon glyphicon-home home' %></th>
               <th><%= link_to 'Users', users_index_path, class: 'glyphicon glyphicon-user users' %></th>
               <th><%= link_to 'Blog', blogs_path, class: 'glyphicon glyphicon-book books' %></th>
               <th><%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></th>
