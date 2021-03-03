@@ -11,12 +11,14 @@
 
  <tbody>
    <% @blogs.each do |blog| %>
+    <% if user_signed_in? %>
     <tr>
      <td><%= link_to blog.title, blog_path(blog), class: "blog_#{blog.id}" %></td>
      <td><%= blog.body %></td>
      <td><%= link_to 'Edit', edit_blog_path(blog), class: "edit_blog_#{@blog.id}", class: "btn btn-primary" %></td>
      <td><%= link_to 'Destroy', blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{blog.id}" %></td>
     </tr>
+    <% end %>
    <% end %>
  </tbody>
 </table>
