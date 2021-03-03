@@ -28,6 +28,15 @@ class BlogsController < ApplicationController
     end
   end
 
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blog_path(@blog), notice: "You have updated user successfully."
+    else
+      render "edit"
+    end
+  end
+
   def show
     @blog = Blog.find(params[:id])
   end
