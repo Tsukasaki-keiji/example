@@ -1,3 +1,16 @@
 <h1>投稿</h1>
 <% @videos.each do |video| %>
 <% end %>
+
+
+<h2>
+<%= form_with model: @video, local: true do |f| %>
+ <h4>タイトル</h4>
+ <%= f.text_field :title %>
+ <h4>introduction</h4>
+ <%= f.text_area :introduction %>
+ <h4>ビデオ</h4>
+ <%= f.file_field :video %>
+ <%= f.submit '投稿' %>
+<% end %>
+</h2>
