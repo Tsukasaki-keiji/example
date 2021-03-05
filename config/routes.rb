@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
   resources :videos, only: [:new, :create, :show, :index]
 
+  resources :users, only: [:index, :show, :update, :edit, :new]
+
 end
