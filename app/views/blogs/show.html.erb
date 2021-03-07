@@ -13,10 +13,22 @@
         <%= attachment_image_tag @blog, :image, :fill, 360, 240, format: 'jpeg' %>
         <% end %>
        </td>
-       <td><%= @blog.body %></td>
+       <td>
+        <%= @blog.body %>
+        <%= form_with(model:[@blog, @post_comment], method: :post) do |f| %>
+         <%= f.text_area :comment_content %>
+         <%= f.submit 'コメントする' %>
+        <% end %>
+       </td>
       </tr>
      </tbody>
   </table>
+  <h3>コメント一覧</h3>
+   <% @post_comments.each do |comment| %>
+    <%= post_comment.comment_content %>
+     <% if comment.user == current_user %>
+     <% link_to 'Destroy', blog_comment_path(@blog, post_comment), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-dander" %>
+     <% end %>
+   <% end %>
  </div>
 </div>
-
