@@ -17,6 +17,7 @@
         <%= @blog.body %>
         <%= form_with(model:[@blog, @post_comment], method: :post) do |f| %>
          <%= f.text_area :comment_content %>
+         <%= f.hidden_field :blog_id, value: @blog.id %>
          <%= f.submit 'コメントする' %>
         <% end %>
        </td>
@@ -25,9 +26,9 @@
   </table>
   <h3>コメント一覧</h3>
    <% @post_comments.each do |comment| %>
-    <%= post_comments.comment %>
-     <% if post_comment.user == current_user %>
-     <% link_to 'Destroy', blog_comment_path(@blog, post_comment), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-dander" %>
+    <%= @post_comment.comment %>
+     <% if @post_comment.user == current_user %>
+     <% link_to 'Destroy', blog_post_comment_path(@blog, @post_comments), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-dander" %>
      <% end %>
    <% end %>
  </div>
