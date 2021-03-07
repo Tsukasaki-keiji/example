@@ -24,12 +24,13 @@
       </tr>
      </tbody>
   </table>
-  <h3>コメント一覧</h3>
+ </div>
+ <h3>コメント一覧</h3>
    <% @post_comments.each do |comment| %>
     <%= @post_comment.comment %>
      <% if @post_comment.user == current_user %>
      <% link_to 'Destroy', blog_post_comment_path(@blog, @post_comments), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-dander" %>
      <% end %>
    <% end %>
- </div>
 </div>
+
