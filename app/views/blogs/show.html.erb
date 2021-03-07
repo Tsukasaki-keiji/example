@@ -25,8 +25,8 @@
   </table>
   <h3>コメント一覧</h3>
    <% @post_comments.each do |comment| %>
-    <%= post_comment.comment_content %>
-     <% if comment.user == current_user %>
+    <%= post_comments.comment %>
+     <% if post_comment.user == current_user %>
      <% link_to 'Destroy', blog_comment_path(@blog, post_comment), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-dander" %>
      <% end %>
    <% end %>

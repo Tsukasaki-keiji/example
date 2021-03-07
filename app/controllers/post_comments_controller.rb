@@ -2,7 +2,7 @@ class PostCommentsController < ApplicationController
 
   def create
     @post_comment = current_user.post_comments.new(post_comment_params)
-    if @post_comment.save!
+    if @post_comment.save
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -17,7 +17,7 @@ class PostCommentsController < ApplicationController
 
   private
   def post_comment_params
-    params.require(:post_comment).permit(:post_comment_content, :blog_id)
+    params.require(:post_comment).permit(:comment, :blog_id)
   end
 
 end

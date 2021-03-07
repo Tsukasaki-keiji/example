@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/home/about', to: 'homes#about'
 
   resources :blogs do
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
   resources :videos, only: [:new, :create, :show, :index]
