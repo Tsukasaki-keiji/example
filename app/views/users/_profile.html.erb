@@ -16,22 +16,3 @@
     </table>
   </div>
 </div>
-
-
--if current_user.id == user.id
-.container.pr-64.pr-71
- .row
- table
-  h1 登録情報
-  tr= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"pull-left profile-img", fallback:"no_image.jpg"
-
-  tr
-   th= "name"
-   th= current_user.name
-
-  tr
-   th= "introduction"
-   th= current_user.introduction
-
-
- = link_to 'プロフィール編集', edit_user_path(user), class:"btn btn-primary btn-block edit_user_#{current_user.id}"
