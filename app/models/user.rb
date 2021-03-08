@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :profile_image
+
+  has_one :user_profile, dependent: :destroy
+  validates :introduction, length: { maximum:50 }
 end
