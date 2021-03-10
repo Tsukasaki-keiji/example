@@ -1,8 +1,13 @@
 <% if current_user.id == user.id %>
+<div class="container">
   <div class="row">
     <table>
-      <h2>登録情報</h2>
-      <tr><%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"pull-left profile-img", fallback:"no_image.jpg" %></tr>
+      <tr>
+        <th class="h2">登録情報</th>
+      </tr>
+      <tr>
+       <th><%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format:'jpeg', class:"pull-left profile-img", fallback:"no_image.jpg" %></th>
+      </tr>
       <tr>
         <th>name</th>
         <th><%= current_user.name %></th>
@@ -10,8 +15,11 @@
       <tr>
         <th>introduction</th>
         <th><%= current_user.introduction %></th>
-      <%= link_to 'プロフィール編集', edit_user_path(user), class:"btn btn-primary btn-block edit_user_#{current_user.id}" %>
+      </tr>
+      <tr>
+       <th><%= link_to 'プロフィール編集', edit_user_path(user), class:"btn btn-primary btn-block edit_user_#{current_user.id}" %></th>
       </tr>
     </table>
   </div>
+</div>
 <% end %>
