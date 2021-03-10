@@ -1,5 +1,4 @@
 <% if current_user.id == user.id %>
-<div class="container">
   <div class="row">
     <table>
       <h2>登録情報</h2>
@@ -11,9 +10,8 @@
       <tr>
         <th>introduction</th>
         <th><%= current_user.introduction %></th>
-      </tr>
       <%= link_to 'プロフィール編集', edit_user_path(user), class:"btn btn-primary btn-block edit_user_#{current_user.id}" %>
+      </tr>
     </table>
   </div>
-</div>
 <% end %>
