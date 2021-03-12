@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-
+before_action :authenticate_user!, only: [:edit, :new, :create, :show]
   def index
     @blogs = Blog.all
     @blog = Blog.new

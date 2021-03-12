@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new, :create, :show]
 
   def index
     @videos = Video.all

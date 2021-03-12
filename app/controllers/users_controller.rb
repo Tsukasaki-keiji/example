@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except:[:top, :about]
   def index
     @users = User.all
     @blogs = Blog.all
